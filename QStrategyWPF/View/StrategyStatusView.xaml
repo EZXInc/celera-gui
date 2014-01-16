@@ -1,0 +1,11 @@
+﻿<Window xmlns:my1="clr-namespace:QStrategyWPF.View.QStrategyUserControls"  
+        x:Class="QStrategyWPF.View.StrategyStatusView"
+        xmlns:my="clr-namespace:QStrategyWPF.View" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Strategy Status View" Height="250" Width="650"
+        Icon="/QStrategyWPF;component/Images/QStrategyIcon.ico">
+    <Grid>
+        <my1:StrategyStatusUserControl x:Name="strategyStatusUC" />
+    </Grid>
+</Window>

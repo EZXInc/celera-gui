@@ -1,0 +1,138 @@
+﻿<Window x:Class="AutoFilterDataGrid.View.FilterSelectionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:vm="clr-namespace:AutoFilterDataGrid.ViewModel"
+        xmlns:converter="clr-namespace:AutoFilterDataGrid.Converters"
+        Title="Filter Selection" Height="310" Width="220"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow"  WindowState="Normal" ResizeMode="NoResize"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Window.DataContext>
+        <vm:FilterSelectionVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <LinearGradientBrush x:Key="MenuItemBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFFFFF" Offset="0" />
+            <GradientStop Color="#FFFFFFFF" Offset="0.3" />
+            <GradientStop Color="#FFB9CBDB" Offset="1" />
+        </LinearGradientBrush>
+        <converter:FilterTypeToBooleanConverter x:Key="FilterTypeToBooleanConverter"/>
+        <converter:FilterTypeToVisibilityConverter x:Key="FilterTypeToVisibilityConverter"/>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="160"/>-->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Beige">
+            <MenuItem x:Name="mnuSortLowToHigh" Header="Sort low to high" Width="210"  Click="mnuSortLowToHigh_Click" BorderBrush="LightBlue" Background="{StaticResource MenuItemBrush}">
+                <MenuItem.Icon>
+                    <Image Source="/EZXWPFLibrary;component/Images/asc.png" Width="15" Height="15" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="mnuSortHighToLow" Header="Sort high to low" Width="210" Click="mnuSortHighToLow_Click" BorderBrush="LightBlue" Background="{StaticResource MenuItemBrush}">
+                <MenuItem.Icon>
+                    <Image Source="/EZXWPFLibrary;component/Images/desc.png" Width="15" Height="15" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="mnuClear" Header="Clear filter from column" Width="210" Click="mnuClear_Click" BorderBrush="LightBlue" Background="{StaticResource MenuItemBrush}">
+                <MenuItem.Icon>
+                    <Image Source="/EZXWPFLibrary;component/Images/removefilter.png" Width="12" Height="13" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="mnuNumeric" Width="210" Background="{StaticResource MenuItemBrush}"
+                      BorderBrush="LightBlue" MouseLeftButtonDown="mnuNumeric_MouseLeftButtonDown"  
+                      Click="mnuNumeric_Click"        
+                      >
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal" Background="Transparent" Margin="0" Opacity="1">
+                        <TextBlock Text="Numeric Filter ..." Background="Transparent" Margin="0,0,10,0"/>
+                        <Image Source="/EZXWPFLibrary;component/Images/tick.png" Width="15" Height="13" 
+                               Visibility="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToVisibilityConverter}, ConverterParameter=NUMERIC, Mode=OneWay}"/>
+                    </StackPanel>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="/EZXWPFLibrary;component/Images/numeric.png" Width="15" Height="15" />
+                </MenuItem.Icon>
+            <Menu x:Name="numericSubMenu" Background="Transparent" FontSize="11"   
+                      BorderThickness="0" Padding="0" Margin="0" BorderBrush="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <StackPanel>
+                        <MenuItem Header="Equal..." x:Name="mnuNumericEquals" Click="mnuNumericEquals_Click"
+                                 Margin="1" IsCheckable="True" Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=EQ, Mode=OneWay}"
+                                  />
+                        <MenuItem Header="Not Equal..." x:Name="mnuNumericNotEquals" Click="mnuNumericNotEquals_Click"
+                                 Margin="1" IsCheckable="True" Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=NE, Mode=OneWay}"
+                                  />
+                        <Separator/>
+                    <MenuItem Header="Range..." x:Name="mnuNumericRange" Click="mnuNumericRange_Click" 
+                                 Margin="1" IsCheckable="True"  Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=RNG, Mode=OneWay}"
+                                  />
+                    <Separator/>    
+                    <MenuItem Header="Greater than..." x:Name="mnuNumericGreaterThan" Click="mnuNumericGreaterThan_Click"
+                                 Margin="1" IsCheckable="True" Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=GT, Mode=OneWay}"
+                                  />
+                        <MenuItem Header="Greater than or Equal to..." x:Name="mnuNumericGreaterThanorEqual" Click="mnuNumericGreaterThanorEqual_Click"
+                                  Margin="1" IsCheckable="True" Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=GE, Mode=OneWay}"
+                                  />
+                        <Separator/>
+                        <MenuItem Header="Less than..." x:Name="mnuNumericLessThan" Click="mnuNumericLessThan_Click"
+                                 Margin="1" IsCheckable="True" Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=LT, Mode=OneWay}"
+                                  />
+                        <MenuItem Header="Less than or Equal to..." x:Name="mnuNumericLessThanOrEquals" Click="mnuNumericLessThanOrEquals_Click"
+                                 Margin="1" IsCheckable="True" Background="{StaticResource MenuItemBrush}" BorderBrush="LightBlue"
+                                  IsChecked="{Binding Path=SelectedFilterColumn.FilterType, Converter={StaticResource FilterTypeToBooleanConverter}, ConverterParameter=LE, Mode=OneWay}"
+                                  />
+                    </StackPanel>
+                </Menu>
+            </MenuItem>
+        </Menu>
+
+        <!--<Border Grid.Column="0" Grid.RowSpan="4" Background="LightGray" BorderThickness="1"/>
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left">
+            <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="25" HorizontalContentAlignment="Left" Click="Button_Click_2">
+                <TextBlock Text="Sort low to high"/>
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="25" HorizontalContentAlignment="Left" Click="Button_Click_3">
+                <TextBlock Text="Sort High to Low"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+            <Button Background="Transparent" BorderBrush="Transparent"  BorderThickness="0" Height="25" 
+                    HorizontalContentAlignment="Left" Click="Button_Click_1">
+                <TextBlock Text="Clear filter from field"/>
+            </Button>
+             <Line Width="150" Fill="Black" FlowDirection="LeftToRight" />
+        </StackPanel>-->
+
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="LightBlue" BorderThickness="1">
+            <ListBox Name="lstFilterList" ItemsSource="{Binding FilterItemList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding IsSelected}" 
+                                  Checked="CheckBox_Checked" 
+                                  Unchecked="CheckBox_Unchecked"
+                                  Height="14" FontSize="11" Margin="1"  
+                                  Content="{Binding DataDisplay}" 
+                              />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+        <Button Content="OK" Grid.Row="2" Grid.ColumnSpan="2" IsDefault="True"
+                Width="60" Height="25" Margin="5" Click="Button_Click"/>
+    </Grid>
+</Window>

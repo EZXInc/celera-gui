@@ -1,0 +1,270 @@
+﻿<UserControl x:Class="QStrategyWPF.View.QStrategyUserControls.OrderBlotterUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:afdg="clr-namespace:AutoFilterDataGrid;assembly=EZXWPFLibrary"  
+             xmlns:vm="clr-namespace:QStrategyWPF.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:OrderBlotterUserControlVM/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="RightAlignTextBox">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="AutoRefresh" Grid.Column="0" Visibility="Collapsed"
+                    Content="{Binding Source={StaticResource AppManager}, Path=AutoUpdateData, Converter={StaticResource AutoUpdateDataToContentConverter}}" 
+                    Margin="5" Width="100" Height="25"                     
+                    Foreground="DarkBlue" 
+                    Click="AutoRefresh_Click"
+                    />
+            <Button x:Name="Unfilter" Grid.Column="1" FontSize="12" FontWeight="DemiBold"
+                    Content="Clear all filter(s)" Margin="15,5,5,5" Width="105" Height="25" 
+                    Click="Unfilter_Click" 
+                    Foreground="DarkBlue"
+                    />
+            <CheckBox x:Name="ckhEnableHungSymbol"
+                      Grid.Column="2" Foreground="Blue"
+                      VerticalAlignment="Center" Margin="10"
+                      Content="Enable hung symbols alert" 
+                      Checked="ckhEnableHungSymbol_Checked" 
+                      Unchecked="ckhEnableHungSymbol_Unchecked"
+                      />
+            <StackPanel Grid.Column="3" Grid.Row="0" Orientation="Horizontal">
+                <Button x:Name="btnBuy" Content="Buy" Height="25" Width="70"
+                        Foreground="DarkBlue" Margin="5,0,5,0" Click="btnBuy_Click" />
+                <Button x:Name="btnSell" Content="Sell" Height="25" Width="70"
+                        Foreground="DarkBlue" Margin="5,0,5,0" Click="btnSell_Click" />
+                <Button x:Name="btnBoth" Content="Both" Height="25" Width="70"
+                        Foreground="DarkBlue" Margin="5,0,5,0" Click="btnBoth_Click" />
+
+            </StackPanel>
+            <ComboBox x:Name="cmbStrategy" Grid.Column="4"
+                        Margin="5" MinWidth="200" Height="23" HorizontalAlignment="Right"
+                        ItemsSource="{Binding Source={StaticResource AppManager}, Path=DataMgr.StrategyList}"
+                        SelectedValuePath="StrategyId"
+                        DisplayMemberPath="StrategyName"
+                        SelectedValue="{Binding Path=SelectedStrategyId, Mode=TwoWay, Converter={StaticResource DebugConverter}}" 
+                        SelectionChanged="cmbStrategy_SelectionChanged"
+                        />
+        </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                        VerticalScrollBarVisibility="Disabled"  
+                        Grid.Row="1">
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <afdg:AutofilterDataGrid x:Name="fltdg" Grid.Row="0" Focusable="True"
+                                    FrozenColumnCount="1" ClipboardCopyMode="IncludeHeader"
+                                    HeadersVisibility="All" 
+                                    IsFilterableGrid="True"
+                                    SelectionMode="Extended"
+                                    SelectedCellsChanged="fltdg_SelectedCellsChanged"
+                                    Foreground="Black"
+                                    RowHeaderWidth="20"
+                                    AutoGenerateColumns="False"
+                                    VerticalScrollBarVisibility="Auto"
+                                    CanUserAddRows="False" CanUserDeleteRows="False"    
+                                    ItemsSource="{Binding Source={StaticResource AppManager}, Path=DataMgr.StrategyOrderCollectionView}"
+                                    Loaded="fltdg_Loaded"
+                                    ColumnReordering="fltdg_ColumnReordering"
+                                    ColumnReordered="fltdg_ColumnReordered"
+                                    IsColumnConfigurationIncluded="True"
+                                    MaxWidth="1800" MaxHeight="1600"
+                                    EnableColumnVirtualization="True"
+                                    EnableRowVirtualization="True"
+                                    RowHeight="20"
+                                    VirtualizingStackPanel.IsVirtualizing="True"                                         
+                                    >
+                    <afdg:AutofilterDataGrid.Resources>
+                        <ContextMenu  x:Key="DataRowContextMenu">
+                            <MenuItem x:Name="mnuStart" Header="Start" Click="mnuStart_Click"
+                                      IsEnabled="{Binding Path=IsOpen, RelativeSource={RelativeSource FindAncestor, AncestorType=ContextMenu, AncestorLevel=1}, Converter={StaticResource ContextMenuIsOpenToEnableConverter}, ConverterParameter=START}">
+                                <MenuItem.Icon>
+                                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                        <Grid>
+                                            <Grid Name="backgroundGridStart" Width="32" Height="32" Visibility="Collapsed" />
+                                            <Path Data="F1M1188.2,1715.23L1169.93,1728.57 1151.66,1741.9 1151.66,1715.23 1151.66,1688.57 1169.93,1701.9 1188.2,1715.23z" Stretch="Uniform" Fill="#FF6FBE46" Width="16" Height="16" Margin="0,0,0,0">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="mnuStop" Header="Stop" Click="mnuStop_Click"
+                                IsEnabled="{Binding Path=IsOpen, RelativeSource={RelativeSource FindAncestor, AncestorType=ContextMenu, AncestorLevel=1}, Converter={StaticResource ContextMenuIsOpenToEnableConverter}, ConverterParameter=STOP}">
+                                <MenuItem.Icon>
+                                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                        <Grid>
+                                            <Grid Name="backgroundGridStop" Width="28" Height="28" Visibility="Collapsed" />
+                                            <Path Data="M0,0L64,0 64,64 0,64z" Stretch="Uniform" Fill="#FFB71000" Width="14" Height="14" Margin="0,0,0,0">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="mnuLock" Header="Lock" Click="mnuLock_Click"
+                                    IsEnabled="{Binding Path=IsOpen, RelativeSource={RelativeSource FindAncestor, AncestorType=ContextMenu, AncestorLevel=1}, Converter={StaticResource ContextMenuIsOpenToEnableConverter}, ConverterParameter=LOCK}">                                <MenuItem.Icon>
+                                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                        <Grid>
+                                            <Grid Name="backgroundGridLock" Width="32" Height="32" Visibility="Collapsed" />
+                                            <Path Data="F1M339.3071,1185.249L339.3071,1188.437 337.2111,1188.437 337.2111,1185.251C336.3721,1184.876 335.7831,1184.085 335.7831,1183.151 335.7831,1181.861 336.8901,1180.815 338.2561,1180.815 339.6281,1180.815 340.7371,1181.861 340.7371,1183.151 340.7371,1184.082 340.1471,1184.876 339.3071,1185.249 M331.6851,1168.456C331.6851,1165.017 334.4711,1162.228 337.9101,1162.228 341.3491,1162.228 344.1411,1165.017 344.1411,1168.456L344.1411,1171.745C344.1411,1172.16,344.0991,1172.565,344.0211,1172.959L331.8051,1172.959C331.7281,1172.565,331.6851,1172.16,331.6851,1171.745z M346.2351,1173.133C346.2611,1172.861,346.2761,1172.586,346.2761,1172.308L346.2761,1167.893C346.2761,1163.274 342.5291,1159.528 337.9101,1159.528 333.2921,1159.528 329.5511,1163.274 329.5511,1167.893L329.5511,1172.308C329.5511,1172.586 329.5661,1172.861 329.5921,1173.132 327.2211,1173.733 325.4651,1175.875 325.4651,1178.432L325.4651,1189.558C325.4651,1192.578,327.9121,1195.028,330.9361,1195.028L344.8901,1195.028C347.9091,1195.028,350.3601,1192.578,350.3601,1189.558L350.3601,1178.432C350.3601,1175.876,348.6031,1173.733,346.2351,1173.133" Stretch="Uniform" Fill="#FFFCD209" Width="16" Height="16" Margin="0,0,0,0">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="mnuUnLock" Header="Unlock" Click="mnuUnLock_Click"
+                                IsEnabled="{Binding Path=IsOpen, RelativeSource={RelativeSource FindAncestor, AncestorType=ContextMenu, AncestorLevel=1}, Converter={StaticResource ContextMenuIsOpenToEnableConverter}, ConverterParameter=UNLOCK}">                                <MenuItem.Icon>
+                                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                        <Grid>
+                                            <Grid Name="backgroundGridUnlock" Width="32" Height="32" Visibility="Collapsed" />
+                                            <Path Data="F1M648.2778,1043.3809L648.2778,1047.4329 645.6158,1047.4329 645.6158,1043.3839C644.5488,1042.9079 643.7998,1041.9019 643.7998,1040.7169 643.7998,1039.0759 645.2068,1037.7479 646.9428,1037.7479 648.6858,1037.7479 650.0938,1039.0759 650.0938,1040.7169 650.0938,1041.8989 649.3458,1042.9079 648.2778,1043.3809 M654.3988,1031.2069C654.3988,1031.2009,654.3998,1031.1959,654.4008,1031.1899L651.2988,1031.1529 641.3268,1031.1529 640.3338,1028.5859C639.1988,1025.6569 640.6488,1022.3669 643.5788,1021.2339 646.5088,1020.0989 649.7988,1021.5549 650.9328,1024.4789L652.0168,1027.2809C652.2178,1027.8009,652.3348,1028.3359,652.3778,1028.8669L654.4728,1028.8909C654.3998,1028.2769,654.2548,1027.6609,654.0208,1027.0559L652.5638,1023.2979C651.0408,1019.3659 646.6198,1017.4139 642.6888,1018.9379 638.7598,1020.4589 636.8068,1024.8789 638.3278,1028.8109L639.3428,1031.4309C637.3868,1032.1059,635.9778,1033.9609,635.9778,1036.1469L635.9778,1046.2999C635.9778,1049.0579,638.2148,1051.2949,640.9708,1051.2949L653.7078,1051.2949C656.4668,1051.2949,658.7008,1049.0579,658.7008,1046.2999L658.7008,1036.1469C658.7008,1033.6249,656.8298,1031.5439,654.3988,1031.2069" Stretch="Uniform" Fill="#FFF68828" Width="16" Height="16" Margin="0,0,0,0">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="mnuCancelAll" Header="Cancel" Click="mnuCancelAll_Click">
+                                <MenuItem.Icon>
+                                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                        <Grid>
+                                            <Grid Name="backgroundGridCancelAll" Width="16" Height="16" Visibility="Collapsed" />
+                                            <Path Data="M19.85228,12.08996L12.093,19.849201 24.242323,31.997846 12.094,44.145998 19.852051,51.904958 32.001186,39.756277 44.150543,51.904958 51.909,44.145994 39.760246,31.997501 51.909,19.849201 44.15049,12.08996 32.001431,24.238849z M32,0C49.671021,3.1599484E-07 64,14.329407 64,31.998501 64,49.677606 49.671021,63.997003 32,63.997003 14.328003,63.997003 0,49.677606 0,31.998501 0,14.329407 14.328003,3.1599484E-07 32,0z" Stretch="Uniform" Fill="#FFB71000" Width="16" Height="16" Margin="0,0,0,0">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="mnuUnwind" Header="Unwind" Click="mnuUnwind_Click">
+                                <MenuItem.Icon>
+                                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                        <Grid>
+                                            <Grid Name="backgroundGridUnwind" Width="32" Height="32" Visibility="Collapsed" />
+                                            <Path Data="M5.2010002,14.812L5.2010002,43.573997 56.098,43.573997 56.098,14.812z M29.868601,3.8869994C28.026201,3.8869996 26.534,5.3791947 26.534,7.2190399 26.534,9.0588851 28.026201,10.553 29.868601,10.553 31.7085,10.553 33.202,9.0588851 33.202,7.2190399 33.202,5.3791947 31.7085,3.8869996 29.868601,3.8869994z M19.200649,3.8869994C17.359457,3.8869996 15.867001,5.3791947 15.867001,7.2190399 15.867001,9.0588851 17.359457,10.553 19.200649,10.553 21.042044,10.553 22.536999,9.0588851 22.536999,7.2190399 22.536999,5.3791947 21.042044,3.8869996 19.200649,3.8869994z M8.5339746,3.8869994C6.6931,3.8869996 5.2010002,5.3791947 5.2010002,7.2190399 5.2010002,9.0588851 6.6931,10.553 8.5339746,10.553 10.37495,10.553 11.867,9.0588851 11.867,7.2190399 11.867,5.3791947 10.37495,3.8869996 8.5339746,3.8869994z M0,0L63.999001,0 63.999001,48.792999 0,48.792999z" Stretch="Uniform" Fill="#FF262626" Width="16" Height="16" Margin="0,0,0,0">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="mnuBuy" Header="Buy" Click="mnuBuy_Click" />
+                            <MenuItem x:Name="mnuSell" Header="Sell" Click="mnuSell_Click" />
+                            <MenuItem x:Name="mnuBoth" Header="Both" Click="mnuBoth_Click" />
+                        </ContextMenu>
+                    </afdg:AutofilterDataGrid.Resources>
+                    <afdg:AutofilterDataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}" x:Name="styleForDataRow" 
+                               BasedOn="{StaticResource {x:Type DataGridRow}}">
+                            <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}"/>                            
+                        </Style>
+                    </afdg:AutofilterDataGrid.RowStyle>
+                </afdg:AutofilterDataGrid>
+                <afdg:AutofilterDataGrid x:Name="fltdgSummary" Grid.Row="1"
+                                    FrozenColumnCount="1" Focusable="True"
+                                    HeadersVisibility="Row"                                 
+                                    SelectionMode="Extended"
+                                    Foreground="Black"
+                                    RowHeaderWidth="20"
+                                    AutoGenerateColumns="False"
+                                    CanUserAddRows="False" CanUserDeleteRows="False"    
+                                    ItemsSource="{Binding Source={StaticResource AppManager}, Path=DataMgr.AggregateStrategyOrderInfo}"                                     
+                                >
+                    <!--<DataGrid.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="{x:Null}" />
+                                <Setter Property="BorderBrush" Value="{x:Null}" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="{x:Null}" />
+                                        <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Setter Property="Background" Value="{x:Null}" />
+                                <Setter Property="BorderBrush" Value="{x:Null}" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="{x:Null}" />
+                                        <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ResourceDictionary>
+                    </DataGrid.Resources>-->
+                </afdg:AutofilterDataGrid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

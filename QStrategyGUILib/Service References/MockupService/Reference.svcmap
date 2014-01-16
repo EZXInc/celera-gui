@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2658b239-0610-4fe0-b272-bffc451fa923" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20974/MockupMainService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MockupMainService.disco" MetadataType="Disco" ID="b2ba2647-2933-4ff8-a646-91aae970610e" SourceId="1" SourceUrl="http://localhost:20974/MockupMainService.svc?disco" />
+    <MetadataFile FileName="MockupMainService.wsdl" MetadataType="Wsdl" ID="cb8da5ba-58de-4fae-9a3c-80c36c6c9fb7" SourceId="1" SourceUrl="http://localhost:20974/MockupMainService.svc?wsdl" />
+    <MetadataFile FileName="MockupMainService.xsd" MetadataType="Schema" ID="468b615c-0f75-4467-8ff8-e65b28b88c59" SourceId="1" SourceUrl="http://localhost:20974/MockupMainService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MockupMainService1.xsd" MetadataType="Schema" ID="fbd2ebfa-8283-431e-b3b3-6fc6123ffaff" SourceId="1" SourceUrl="http://localhost:20974/MockupMainService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MockupMainService2.xsd" MetadataType="Schema" ID="f046634e-0214-45c0-9037-c00c5a54d4a6" SourceId="1" SourceUrl="http://localhost:20974/MockupMainService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MockupMainService3.xsd" MetadataType="Schema" ID="d06932b9-4bee-4cb3-9d2a-8f0a87f122bf" SourceId="1" SourceUrl="http://localhost:20974/MockupMainService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

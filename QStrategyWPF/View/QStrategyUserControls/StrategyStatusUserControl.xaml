@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="QStrategyWPF.View.QStrategyUserControls.StrategyStatusUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:afdg="clr-namespace:AutoFilterDataGrid;assembly=EZXWPFLibrary"               
+             xmlns:vm="clr-namespace:QStrategyWPF.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.DataContext>
+        <vm:StrategyStatusVM/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="RightAlignTextBox">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="SelectAll" FontSize="12" FontWeight="DemiBold"
+                        Content="Select all" Margin="15,5,5,5" Width="85" Height="25" 
+                        HorizontalAlignment="Left" 
+                        Foreground="DarkBlue" Click="SelectAll_Click" />
+            <Button x:Name="Start" FontSize="12" FontWeight="DemiBold"
+                        Content="Start" Margin="5,5,5,5" Width="85" Height="25" 
+                        HorizontalAlignment="Left" 
+                        Foreground="DarkBlue" Click="Start_Click" />
+        </StackPanel>
+            <afdg:AutofilterDataGrid x:Name="fltdgStrategyStatus" Grid.Row="1"
+                                FrozenColumnCount="1" ClipboardCopyMode="IncludeHeader"
+                                HeadersVisibility="All" 
+                                SelectionMode="Extended"
+                                Foreground="Black"
+                                RowHeaderWidth="20"
+                                AutoGenerateColumns="False"
+                                VerticalScrollBarVisibility="Auto"
+                                CanUserAddRows="False" CanUserDeleteRows="False"    
+                                ItemsSource="{Binding Source={StaticResource AppManager}, Path=DataMgr.StrategyStatusOrderCollectionView}"
+                                IsColumnConfigurationIncluded="True"
+                                MaxWidth="1800" MaxHeight="1600"
+                                EnableColumnVirtualization="True"
+                                IsFilterableGrid="False"
+                                EnableRowVirtualization="True"
+                                RowHeight="20"
+                                VirtualizingStackPanel.IsVirtualizing="True"                                         
+                                >
+            </afdg:AutofilterDataGrid>
+    </Grid>
+</UserControl>

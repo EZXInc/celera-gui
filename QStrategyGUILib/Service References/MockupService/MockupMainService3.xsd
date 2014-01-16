@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MockupServer.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MockupServer.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:20974/MockupMainService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="StrategyResultsUpdate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:StrategyEngineUpdate">
+        <xs:sequence>
+          <xs:element name="strategyOrderInfoList" nillable="true" type="tns:ArrayOfStrategyOrder" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StrategyResultsUpdate" nillable="true" type="tns:StrategyResultsUpdate" />
+  <xs:complexType name="StrategyEngineUpdate">
+    <xs:sequence>
+      <xs:element name="apiStateField" type="tns:APIState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StrategyEngineUpdate" nillable="true" type="tns:StrategyEngineUpdate" />
+  <xs:simpleType name="APIState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Initial" />
+      <xs:enumeration value="PendingLogon" />
+      <xs:enumeration value="LoggedOn" />
+      <xs:enumeration value="Ready" />
+      <xs:enumeration value="LogonFailure" />
+      <xs:enumeration value="Disconnected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="APIState" nillable="true" type="tns:APIState" />
+  <xs:complexType name="ArrayOfStrategyOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StrategyOrder" nillable="true" type="tns:StrategyOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStrategyOrder" nillable="true" type="tns:ArrayOfStrategyOrder" />
+  <xs:complexType name="StrategyOrder">
+    <xs:sequence>
+      <xs:element name="PnL" type="xs:double" />
+      <xs:element name="max_Loss" type="xs:double" />
+      <xs:element name="number_Of_Open_Orders" type="xs:int" />
+      <xs:element name="pnL_Per_Share" type="xs:double" />
+      <xs:element name="position_Shares" type="xs:int" />
+      <xs:element name="postion_Amount" type="xs:double" />
+      <xs:element name="rebate_Revenue" type="xs:double" />
+      <xs:element name="seedRemaining" type="xs:int" />
+      <xs:element name="status" type="tns:StrategyStatus" />
+      <xs:element name="strategy" nillable="true" type="tns:StrategyInfo" />
+      <xs:element name="symbol" nillable="true" type="xs:string" />
+      <xs:element name="trading_Revenue" type="xs:double" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="user_Message" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element name="volume" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StrategyOrder" nillable="true" type="tns:StrategyOrder" />
+  <xs:simpleType name="StrategyStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Trading" />
+      <xs:enumeration value="Stopped" />
+      <xs:enumeration value="Pause" />
+      <xs:enumeration value="Max_Loss" />
+      <xs:enumeration value="Hung" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StrategyStatus" nillable="true" type="tns:StrategyStatus" />
+  <xs:complexType name="StrategyInfo">
+    <xs:sequence>
+      <xs:element name="strategyId" nillable="true" type="xs:string" />
+      <xs:element name="strategyName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StrategyInfo" nillable="true" type="tns:StrategyInfo" />
+  <xs:simpleType name="ProcessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="START" />
+      <xs:enumeration value="STOP" />
+      <xs:enumeration value="CANCELALL" />
+      <xs:enumeration value="UNWIND" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProcessType" nillable="true" type="tns:ProcessType" />
+  <xs:simpleType name="CancelOrderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NA" />
+      <xs:enumeration value="AllOpenOrders" />
+      <xs:enumeration value="AllOrders" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CancelOrderType" nillable="true" type="tns:CancelOrderType" />
+</xs:schema>

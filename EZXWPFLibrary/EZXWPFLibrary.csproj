@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03C953EB-7BFF-413D-A7A6-76FEB3C347C1}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EZXWPFLibrary</RootNamespace>
+    <AssemblyName>EZXWPFLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoFilterDataGrid\AutofilterDataGrid.cs" />
+    <Compile Include="AutoFilterDataGrid\AutofilterDataGrid_Ext_ColumnOrdering.cs" />
+    <Compile Include="AutoFilterDataGrid\Controller\ColumnsConfigurationController.cs" />
+    <Compile Include="AutoFilterDataGrid\Converters\FilterTypeToBooleanConverter.cs" />
+    <Compile Include="AutoFilterDataGrid\Converters\FilterTypeToVisibilityConverter.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\ColumnsConfigInfo.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\Condition.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\FilterColumn.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\FilterItem.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\FilterSelectionType.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\LogicOperatorType.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\NumericFilterType.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\OperatorType.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\SortOrder.cs" />
+    <Compile Include="AutoFilterDataGrid\Model\ValueDataType.cs" />
+    <Compile Include="AutoFilterDataGrid\ViewModel\FilterSelectionVM.cs" />
+    <Compile Include="AutoFilterDataGrid\ViewModel\NumericFilterVM.cs" />
+    <Compile Include="AutoFilterDataGrid\ViewModel\ShowHideColumnManagerVM.cs" />
+    <Compile Include="AutoFilterDataGrid\ViewModel\ViewModelBase.cs" />
+    <Compile Include="AutoFilterDataGrid\View\FilterIconUsercontrol.xaml.cs">
+      <DependentUpon>FilterIconUsercontrol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoFilterDataGrid\View\FilterSelectionView.xaml.cs">
+      <DependentUpon>FilterSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoFilterDataGrid\View\NumericFilterView.xaml.cs">
+      <DependentUpon>NumericFilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoFilterDataGrid\View\ShowHideColumnManagerView.xaml.cs">
+      <DependentUpon>ShowHideColumnManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ComboData.cs" />
+    <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\MTObservableCollection.cs" />
+    <Compile Include="Helpers\ObservableBase.cs" />
+    <Compile Include="Helpers\ObservableBaseExtension.cs" />
+    <Compile Include="Helpers\SortableObservableCollection.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Utils\BackgroundWorkerTask.cs" />
+    <Compile Include="Utils\ConditionCompareUtility.cs" />
+    <Compile Include="Utils\LogUtil.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AutoFilterDataGrid\View\FilterIconUsercontrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AutoFilterDataGrid\View\FilterSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AutoFilterDataGrid\View\NumericFilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AutoFilterDataGrid\View\ShowHideColumnManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\filterImage1.png" />
+    <Resource Include="Images\asc.png" />
+    <Resource Include="Images\desc.png" />
+    <Resource Include="Images\numeric.png" />
+    <Resource Include="Images\removefilter.png" />
+    <Resource Include="Images\tick.png" />
+    <Content Include="Lib\log4net.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,152 @@
+﻿<UserControl xmlns:my="clr-namespace:AutoFilterDataGrid;assembly=EZXWPFLibrary"  x:Class="QStrategyWPF.View.QStrategyUserControls.SummaryUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="RightAlignTextBox">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+    </UserControl.Resources>
+    <Expander Header="SUMMARY"
+              BorderThickness="1" BorderBrush="LightBlue"  IsExpanded="True">
+        <Grid>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                        VerticalScrollBarVisibility="Disabled"  
+                        Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <my:AutofilterDataGrid x:Name="dgAggregate" Focusable="True"
+                        Grid.Row="0" ClipboardCopyMode="IncludeHeader"
+                        FrozenColumnCount="4" IsFilterableGrid="False"                        
+                        VerticalGridLinesBrush="LightBlue" HorizontalGridLinesBrush="LightBlue" 
+                        Width="Auto" RowHeaderWidth="20"                                           
+                        ItemsSource="{Binding Source={StaticResource AppManager}, Path=DataMgr.SummaryOrderCollectionView}"
+                        AutoGenerateColumns="False" 
+                        CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                        HeadersVisibility="All"                                     
+                        VerticalScrollBarVisibility="Auto"
+                        Loaded="dgAggregate_Loaded"
+                        IsColumnConfigurationIncluded="True"
+                        ColumnReordering="dgAggregate_ColumnReordering"
+                        ColumnReordered="dgAggregate_ColumnReordered"
+                        >
+                        <!--<DataGrid.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ResourceDictionary>
+                        </DataGrid.Resources>-->
+                        <my:AutofilterDataGrid.Columns>
+                        <DataGridTemplateColumn Width="50" MaxWidth="50" MinWidth="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="startStopRowButton" 
+                                            Content="{Binding Status,Converter={StaticResource StrategyStatusToButtonContentCoverter}}" 
+                                            FontSize="9" FontWeight="ExtraBold"
+                                            Margin="0" Width="40" Height="20" 
+                                            Padding="0" VerticalContentAlignment="Center" HorizontalAlignment="Center"
+                                            Click="startStopRowButton_Click"
+                                            Background="{Binding Status, Converter={StaticResource EngineStatusToStatusColorConverter}}"
+                                            Foreground="Black">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="75" MaxWidth="75" MinWidth="75">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="cancelAllRowButton" Content="CANCEL ALL"
+                                            Click="cancelAllRowButton_Click"
+                                            FontSize="9" FontWeight="ExtraBold"
+                                            IsEnabled="{Binding Source={StaticResource AppManager}, Path=StgEngine.IsStrategyEngineNotRunning}"
+                                            Margin="0" Width="70" Height="20" 
+                                            Padding="0" VerticalContentAlignment="Center" HorizontalAlignment="Center"
+                                            Background="CornflowerBlue" Foreground="Black">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="57" MaxWidth="57" MinWidth="57">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="unwindRowButton" Content="UNWIND" 
+                                            Click="unwindRowButton_Click"
+                                            FontSize="9" FontWeight="ExtraBold"
+                                            Margin="0" Width="47" Height="20" 
+                                            Padding="0" VerticalContentAlignment="Center" HorizontalAlignment="Center"
+                                            Background="DarkGray" Foreground="Black">
+                                        </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        </my:AutofilterDataGrid.Columns>
+                </my:AutofilterDataGrid>
+                <my:AutofilterDataGrid x:Name="dgAggregateSummary" Grid.Row="1"
+                            FrozenColumnCount="4" Focusable="True"
+                            HeadersVisibility="Row"                                 
+                            SelectionMode="Extended"
+                            Foreground="Black"
+                            RowHeaderWidth="20"
+                            AutoGenerateColumns="False"
+                            CanUserAddRows="False" CanUserDeleteRows="False"    
+                            ItemsSource="{Binding Source={StaticResource AppManager}, Path=DataMgr.AggregateSummaryInfo}"                                     
+                                       >
+                        <!--<DataGrid.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ResourceDictionary>
+                        </DataGrid.Resources>-->
+                        <my:AutofilterDataGrid.Columns>
+                            <DataGridTextColumn Width="50" MaxWidth="50" MinWidth="50"/>
+                            <DataGridTextColumn Width="67" MaxWidth="75" MinWidth="75"/>
+                            <DataGridTextColumn Width="57" MaxWidth="57" MinWidth="57"/>
+                        </my:AutofilterDataGrid.Columns>
+                    </my:AutofilterDataGrid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+    </Expander>
+</UserControl>

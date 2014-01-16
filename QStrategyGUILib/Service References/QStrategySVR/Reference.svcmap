@@ -18,10 +18,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.1.214:9050/qs?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.100.215:9050/qs?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="QStrategyWebServiceImplService.wsdl" MetadataType="Wsdl" ID="8f82f55e-3120-484c-acec-8ea35d655c62" SourceId="1" SourceUrl="http://192.168.1.214:9050/qs?wsdl" />
+    <MetadataFile FileName="YxStrategyWebServiceImplService.wsdl" MetadataType="Wsdl" ID="f6219493-23fb-4776-85c8-5445c7665a4b" SourceId="1" SourceUrl="http://192.168.100.215:9050/qs?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

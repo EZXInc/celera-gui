@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://web.yxstrategy.heisen/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="YxStrategyWebServiceImplService" targetNamespace="http://web.yxstrategy.heisen/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://web.yxstrategy.heisen/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="both" type="tns:both" />
+      <xs:element name="bothResponse" type="tns:bothResponse" />
+      <xs:element name="buy" type="tns:buy" />
+      <xs:element name="buyResponse" type="tns:buyResponse" />
+      <xs:element name="cancelAll" type="tns:cancelAll" />
+      <xs:element name="cancelAllResponse" type="tns:cancelAllResponse" />
+      <xs:element name="echo" type="tns:echo" />
+      <xs:element name="echoResponse" type="tns:echoResponse" />
+      <xs:element name="getUpdates" type="tns:getUpdates" />
+      <xs:element name="getUpdatesResponse" type="tns:getUpdatesResponse" />
+      <xs:element name="lock" type="tns:lock" />
+      <xs:element name="lockResponse" type="tns:lockResponse" />
+      <xs:element name="sell" type="tns:sell" />
+      <xs:element name="sellResponse" type="tns:sellResponse" />
+      <xs:element name="start" type="tns:start" />
+      <xs:element name="startResponse" type="tns:startResponse" />
+      <xs:element name="stop" type="tns:stop" />
+      <xs:element name="stopResponse" type="tns:stopResponse" />
+      <xs:element name="unlock" type="tns:unlock" />
+      <xs:element name="unlockResponse" type="tns:unlockResponse" />
+      <xs:complexType name="sell">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sellResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="strategyResultsUpdate">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:strategyEngineUpdate">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="updates" nillable="true" type="tns:symbolUpdate" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="strategyEngineUpdate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="apiState" type="tns:apiState" />
+          <xs:element name="isTrading" type="xs:boolean" />
+          <xs:element name="seedQtyThreshold" type="xs:int" />
+          <xs:element minOccurs="0" name="strategyName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="symbolUpdate">
+        <xs:sequence>
+          <xs:element name="fees" type="xs:double" />
+          <xs:element name="highmark" type="xs:double" />
+          <xs:element minOccurs="0" name="lastTrade" type="xs:dateTime" />
+          <xs:element name="maxLoss" type="xs:double" />
+          <xs:element minOccurs="0" name="mode" type="tns:tradingMode" />
+          <xs:element name="openOrderCount" type="xs:int" />
+          <xs:element name="pnl" type="xs:double" />
+          <xs:element name="position" type="xs:int" />
+          <xs:element name="positionValue" type="xs:double" />
+          <xs:element name="rebates" type="xs:double" />
+          <xs:element minOccurs="0" name="state" type="tns:strategyState" />
+          <xs:element minOccurs="0" name="symbol" type="xs:string" />
+          <xs:element name="tradingPnl" type="xs:double" />
+          <xs:element name="unrealizedPnl" type="xs:double" />
+          <xs:element name="unroutedQty" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="userMessages" nillable="true" type="xs:string" />
+          <xs:element name="volume" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stop">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stopResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelAll">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelAllResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="echo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="echoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUpdates">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getUpdatesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unlock">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unlockResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="start">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="startResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="buy">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="buyResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="both">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bothResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lock">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="symbolSpec" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lockResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:strategyResultsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="tradingMode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Buy" />
+          <xs:enumeration value="Sell" />
+          <xs:enumeration value="Both" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="strategyState">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Stopped" />
+          <xs:enumeration value="Trading" />
+          <xs:enumeration value="MaxLoss" />
+          <xs:enumeration value="Hung" />
+          <xs:enumeration value="Locked" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="apiState">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Initial" />
+          <xs:enumeration value="PendingLogon" />
+          <xs:enumeration value="LoggedOn" />
+          <xs:enumeration value="Ready" />
+          <xs:enumeration value="LogonFailure" />
+          <xs:enumeration value="Disconnected" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echoResponse">
+    <wsdl:part name="parameters" element="tns:echoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUpdates">
+    <wsdl:part name="parameters" element="tns:getUpdates" />
+  </wsdl:message>
+  <wsdl:message name="cancelAll">
+    <wsdl:part name="parameters" element="tns:cancelAll" />
+  </wsdl:message>
+  <wsdl:message name="buyResponse">
+    <wsdl:part name="parameters" element="tns:buyResponse" />
+  </wsdl:message>
+  <wsdl:message name="start">
+    <wsdl:part name="parameters" element="tns:start" />
+  </wsdl:message>
+  <wsdl:message name="sell">
+    <wsdl:part name="parameters" element="tns:sell" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatesResponse">
+    <wsdl:part name="parameters" element="tns:getUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="unlockResponse">
+    <wsdl:part name="parameters" element="tns:unlockResponse" />
+  </wsdl:message>
+  <wsdl:message name="lock">
+    <wsdl:part name="parameters" element="tns:lock" />
+  </wsdl:message>
+  <wsdl:message name="startResponse">
+    <wsdl:part name="parameters" element="tns:startResponse" />
+  </wsdl:message>
+  <wsdl:message name="sellResponse">
+    <wsdl:part name="parameters" element="tns:sellResponse" />
+  </wsdl:message>
+  <wsdl:message name="echo">
+    <wsdl:part name="parameters" element="tns:echo" />
+  </wsdl:message>
+  <wsdl:message name="stop">
+    <wsdl:part name="parameters" element="tns:stop" />
+  </wsdl:message>
+  <wsdl:message name="stopResponse">
+    <wsdl:part name="parameters" element="tns:stopResponse" />
+  </wsdl:message>
+  <wsdl:message name="bothResponse">
+    <wsdl:part name="parameters" element="tns:bothResponse" />
+  </wsdl:message>
+  <wsdl:message name="unlock">
+    <wsdl:part name="parameters" element="tns:unlock" />
+  </wsdl:message>
+  <wsdl:message name="buy">
+    <wsdl:part name="parameters" element="tns:buy" />
+  </wsdl:message>
+  <wsdl:message name="both">
+    <wsdl:part name="parameters" element="tns:both" />
+  </wsdl:message>
+  <wsdl:message name="cancelAllResponse">
+    <wsdl:part name="parameters" element="tns:cancelAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="lockResponse">
+    <wsdl:part name="parameters" element="tns:lockResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StrategyWebService">
+    <wsdl:operation name="sell">
+      <wsdl:input name="sell" message="tns:sell" />
+      <wsdl:output name="sellResponse" message="tns:sellResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input name="stop" message="tns:stop" />
+      <wsdl:output name="stopResponse" message="tns:stopResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelAll">
+      <wsdl:input name="cancelAll" message="tns:cancelAll" />
+      <wsdl:output name="cancelAllResponse" message="tns:cancelAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="echo">
+      <wsdl:input name="echo" message="tns:echo" />
+      <wsdl:output name="echoResponse" message="tns:echoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUpdates">
+      <wsdl:input name="getUpdates" message="tns:getUpdates" />
+      <wsdl:output name="getUpdatesResponse" message="tns:getUpdatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unlock">
+      <wsdl:input name="unlock" message="tns:unlock" />
+      <wsdl:output name="unlockResponse" message="tns:unlockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="start">
+      <wsdl:input name="start" message="tns:start" />
+      <wsdl:output name="startResponse" message="tns:startResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <wsdl:input name="buy" message="tns:buy" />
+      <wsdl:output name="buyResponse" message="tns:buyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="both">
+      <wsdl:input name="both" message="tns:both" />
+      <wsdl:output name="bothResponse" message="tns:bothResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="lock">
+      <wsdl:input name="lock" message="tns:lock" />
+      <wsdl:output name="lockResponse" message="tns:lockResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="YxStrategyWebServiceImplServiceSoapBinding" type="tns:StrategyWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="sell">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="sell">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sellResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAll">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="cancelAll">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelAllResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="stop">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="stopResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="echo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="echoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUpdates">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUpdates">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUpdatesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="start">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="start">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="startResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unlock">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="unlock">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unlockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="both">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="both">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="bothResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="buy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="buyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lock">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lock">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="YxStrategyWebServiceImplService">
+    <wsdl:port name="YxStrategyWebServiceImplPort" binding="tns:YxStrategyWebServiceImplServiceSoapBinding">
+      <soap:address location="http://192.168.100.215:9050/qs" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

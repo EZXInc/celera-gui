@@ -73,7 +73,7 @@
     <None Include="Service References\QStrategySVR\QStrategyGUILib.QStrategySVR.strategyResultsUpdate.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\QStrategySVR\QStrategyWebServiceImplService.wsdl" />
+    <None Include="Service References\QStrategySVR\YxStrategyWebServiceImplService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

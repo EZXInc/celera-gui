@@ -80,11 +80,28 @@ namespace QStrategyWPF.View
                 TxtMessageLine1.Text = "Are you sure you want to unlock?";
                 this.Title = "UNLOCK";
             }
+            else if (_alertType == AlertType.BUY)
+            {
+                TxtMessageLine1.Text = "Are you sure you want to set Trading Mode: Buy ?";
+                this.Title = "Buy";
+            }
+            else if (_alertType == AlertType.SELL)
+            {
+                TxtMessageLine1.Text = "Are you sure you want to set Trading Mode: Sell ?";
+                this.Title = "Sell";
+            }
+            else if (_alertType == AlertType.BOTH)
+            {
+                TxtMessageLine1.Text = "Are you sure you want to set Trading Mode: Both ?";
+                this.Title = "Both";
+            }
         }
 
         private void btnYes_Click(object sender, RoutedEventArgs e)
         {
-            if (alertType == AlertType.START || alertType == AlertType.STOP || alertType == AlertType.LOCK || alertType == AlertType.UNLOCK)
+            if (alertType == AlertType.START || alertType == AlertType.STOP 
+                || alertType == AlertType.LOCK || alertType == AlertType.UNLOCK
+                || alertType == AlertType.BUY || alertType == AlertType.SELL || alertType == AlertType.BOTH)
             {
                 AlertView.AlertReturnType = AlertActionReturnType.YES;
                 if (this.rdoBtnAllSymbol.IsChecked != null && this.rdoBtnAllSymbol.IsChecked.Value == true)

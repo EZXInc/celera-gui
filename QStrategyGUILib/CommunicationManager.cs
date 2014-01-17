@@ -121,7 +121,7 @@ namespace QStrategyGUILib
             //update.isTrading = true;
             //update.strategyName = "MockStrategy";
             //symbolUpdate[] StrategyOrderSRVList = new symbolUpdate[6];
-            //StrategyOrderSRVList[0] = mock("IBM", strategyState.Trading, 500.45, 200, 14555.45, 45555, 12, 15000);           
+            //StrategyOrderSRVList[0] = mock("IBM", strategyState.Trading, 500.45, 200, 14555.45, 45555, 12, 15000);
             //StrategyOrderSRVList[1] = mock("GOOG", strategyState.Stopped, 5100.45, 200, 45755.45, 44555, 112, 55000);
             //StrategyOrderSRVList[2] = mock("SPY", strategyState.Locked, 5030.45, 200, 45515.45, 45155, 121, 5100);
             //StrategyOrderSRVList[3] = mock("MSFT", strategyState.Trading, 2500.45, 200, 45525.45, 45155, 124, 50200);
@@ -243,6 +243,22 @@ namespace QStrategyGUILib
             }
         }
 
+        private symbolUpdate mock(string _symbol, strategyState _state, double _maxloss, int _orderCount, double _pa, int _pos, int _sr, int _vol)
+        {
+            symbolUpdate tempStrategyOrderInfo = new symbolUpdate();
+
+            tempStrategyOrderInfo.symbol = _symbol;
+
+            tempStrategyOrderInfo.maxLoss = _maxloss;
+            tempStrategyOrderInfo.openOrderCount = _orderCount;
+            tempStrategyOrderInfo.positionValue = _pa;
+            tempStrategyOrderInfo.position = _pos;
+            tempStrategyOrderInfo.unroutedQty = _sr;
+            tempStrategyOrderInfo.state = _state;
+            tempStrategyOrderInfo.volume = _vol;
+            return tempStrategyOrderInfo;
+
+        }
     }
 
 }

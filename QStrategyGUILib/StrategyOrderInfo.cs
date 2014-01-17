@@ -245,6 +245,29 @@ namespace QStrategyGUILib
                 this.RaisePropertyChanged(p => p.User_Message);
             }
         }
+        public string TradingMode
+        {
+            get
+            {
+                if (StrategyOrderSRV == null || this.IsSummaryRow
+                    || StrategyOrderSRV.mode == null || !StrategyOrderSRV.modeSpecified)
+                {
+                    return string.Empty;
+                }
+
+                return StrategyOrderSRV.mode.ToString();
+            }
+            set
+            {
+                tradingMode temptradingMode;
+                if (Enum.TryParse(value, out temptradingMode))
+                {
+                    StrategyOrderSRV.mode = temptradingMode;
+                }
+                this.RaisePropertyChanged(p => p.TradingMode);
+            }
+        }
+        
         internal symbolUpdate StrategyOrderSRV
         {
             get { return strategyOrderSRV; }
@@ -313,6 +336,7 @@ namespace QStrategyGUILib
             this.Strategy.StrategyName = strategyOrderInfo.Strategy.StrategyName;
             this.Symbol = strategyOrderInfo.Symbol;
             this.Status = strategyOrderInfo.Status;
+            this.TradingMode = strategyOrderInfo.TradingMode;
             this.PnL = strategyOrderInfo.PnL;
             this.UR_PnL = strategyOrderInfo.UR_PnL;
             this.Position_Shares = strategyOrderInfo.Position_Shares;

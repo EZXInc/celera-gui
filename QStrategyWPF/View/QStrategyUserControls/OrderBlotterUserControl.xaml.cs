@@ -442,10 +442,18 @@ namespace QStrategyWPF.View.QStrategyUserControls
                     StrategyOrderInfo orderInfo = fltdg.SelectedItems[i] as StrategyOrderInfo;
                     if (orderInfo != null)
                     {
-                        if (_processType == ProcessType.BUY || _processType == ProcessType.SELL || _processType == ProcessType.BOTH)
+                        if (_processType == ProcessType.BUY 
+                            || _processType == ProcessType.SELL 
+                            || _processType == ProcessType.BOTH)
                         {
                             if (orderInfo.Status.Equals("Trading"))
                             {
+                                if (_processType.ToString().ToLower().Equals(orderInfo.TradingMode.ToLower()))
+                                {
+                                    //Avoid re-setting the symbol with same trading-mode as before
+                                    continue;
+                                }
+
                                 orderInfo.InProcess = true;
                                 if (!selectedStrategyAndSymbol.ContainsKey(orderInfo.StrategyId))
                                 {
@@ -511,6 +519,23 @@ namespace QStrategyWPF.View.QStrategyUserControls
                     }
                 }
             }
+        }
+
+        private string GetTradingModeValue(ProcessType _processType)
+        {
+            if (_processType == ProcessType.BUY)
+            {
+                return "Buy";
+            }
+            else if (_processType == ProcessType.SELL)
+            {
+                return "Sell";
+            }
+            else if (_processType == ProcessType.BOTH)
+            {
+                return "Both";
+            }
+            return "";
         }
 
         private void ClearSelectedStrategyAndSymbol()
@@ -714,57 +739,136 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
             this.fltdg.SelectAll();
-            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.BUY);
-            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
+            SetTradingModeBuy();
             this.fltdg.UnselectAll();
-            App.AppManager.Buy(selectedStrategyAndSymbol, false);
         }
 
         private void btnSell_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
             this.fltdg.SelectAll();
-            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.SELL);
-            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
+            SetTradingModeSell();
             this.fltdg.UnselectAll();
-            App.AppManager.Sell(selectedStrategyAndSymbol, false);
         }
 
         private void btnBoth_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
             this.fltdg.SelectAll();
-            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.BOTH);
-            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
+            SetTradingModeBoth();
             this.fltdg.UnselectAll();
-            App.AppManager.Both(selectedStrategyAndSymbol, false);
         }
 
         private void mnuBuy_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
-            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.BUY);
-            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
-            App.AppManager.Buy(selectedStrategyAndSymbol, false);
+            SetTradingModeBuy();
         }
 
         private void mnuSell_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
-            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.SELL);
-            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
-            App.AppManager.Sell(selectedStrategyAndSymbol, false);
-
+            SetTradingModeSell();
         }
 
         private void mnuBoth_Click(object sender, RoutedEventArgs e)
         {
+            SetTradingModeBoth();
+        }
+
+
+        private void SetTradingModeBuy()
+        {
+            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
+            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.BUY);
+            if (selectedStrategyAndSymbol.Count == 0)
+            {
+                return;
+            }
+            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
+
+            AlertView view = new AlertView(AlertType.BUY, string.Empty, messageTextLine2, false);
+            bool? status = view.ShowDialog();
+            if (AlertView.AlertReturnType == AlertActionReturnType.YES)
+            {
+                string tradingMode = "Buy";
+                SetOrderTradingMode(selectedStrategyAndSymbol, tradingMode);
+
+                App.AppManager.Buy(selectedStrategyAndSymbol, false);
+            }
+            else
+            {
+                ClearSelectedStrategyAndSymbol();
+            }
+        }
+
+        private void SetOrderTradingMode(Dictionary<string, List<string>> selectedStrategyAndSymbol, string tradingMode)
+        {
+            for (int i = 0; i < fltdg.SelectedItems.Count; i++)
+            {
+                StrategyOrderInfo orderInfo = fltdg.SelectedItems[i] as StrategyOrderInfo;
+                bool foundSymbol = false;
+                foreach (string key in selectedStrategyAndSymbol.Keys)
+                {
+                    List<string> symbolList = selectedStrategyAndSymbol[key];
+                    if (symbolList.Any(sl => sl.Equals(orderInfo.Symbol)))
+                    {
+                        foundSymbol = true;
+                    }
+                }
+                if (foundSymbol)
+                {
+                    orderInfo.TradingMode = tradingMode;
+                }
+            }
+        }
+
+        private void SetTradingModeSell()
+        {
+            Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
+            GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.SELL);
+            if (selectedStrategyAndSymbol.Count == 0)
+            {
+                return;
+            }
+            string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
+
+            AlertView view = new AlertView(AlertType.SELL, string.Empty, messageTextLine2, false);
+            bool? status = view.ShowDialog();
+            if (AlertView.AlertReturnType == AlertActionReturnType.YES)
+            {
+                string tradingMode = "Sell";
+                SetOrderTradingMode(selectedStrategyAndSymbol, tradingMode);
+
+                App.AppManager.Sell(selectedStrategyAndSymbol, false);
+            }
+            else
+            {
+                ClearSelectedStrategyAndSymbol();
+            }
+        }
+
+
+        private void SetTradingModeBoth()
+        {
             Dictionary<string, List<string>> selectedStrategyAndSymbol = new Dictionary<string, List<string>>();
             GetSelectedStrategyAndSymbol(selectedStrategyAndSymbol, ProcessType.BOTH);
+            if (selectedStrategyAndSymbol.Count == 0)
+            {
+                return;
+            }
             string messageTextLine2 = CreateMessageText(selectedStrategyAndSymbol);
-            App.AppManager.Both(selectedStrategyAndSymbol, false);
+
+            AlertView view = new AlertView(AlertType.BOTH, string.Empty, messageTextLine2, false);
+            bool? status = view.ShowDialog();
+            if (AlertView.AlertReturnType == AlertActionReturnType.YES)
+            {
+                string tradingMode = "Both";
+                SetOrderTradingMode(selectedStrategyAndSymbol, tradingMode);
+
+                App.AppManager.Both(selectedStrategyAndSymbol, false);
+            }
+            else
+            {
+                ClearSelectedStrategyAndSymbol();
+            }
         }
     }
 }

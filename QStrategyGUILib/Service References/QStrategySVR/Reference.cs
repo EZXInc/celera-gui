@@ -8,1039 +8,1214 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QStrategyGUILib.QStrategySVR {
-    
-    
+namespace QStrategyGUILib.QStrategySVR
+{
+
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://web.yxstrategy.heisen/", ConfigurationName="QStrategySVR.StrategyWebService")]
-    public interface StrategyWebService {
-        
+    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://web.yxstrategy.heisen/", ConfigurationName = "QStrategySVR.StrategyWebService")]
+    public interface StrategyWebService
+    {
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.sellResponse sell(QStrategyGUILib.QStrategySVR.sell request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.stopResponse stop(QStrategyGUILib.QStrategySVR.stop request);
-        
+
         // CODEGEN: Parameter 'symbolSpec' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
         QStrategyGUILib.QStrategySVR.cancelAllResponse cancelAll(QStrategyGUILib.QStrategySVR.cancelAll request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.echoResponse echo(QStrategyGUILib.QStrategySVR.echo request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.getUpdatesResponse getUpdates(QStrategyGUILib.QStrategySVR.getUpdates request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.unlockResponse unlock(QStrategyGUILib.QStrategySVR.unlock request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.startResponse start(QStrategyGUILib.QStrategySVR.start request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.buyResponse buy(QStrategyGUILib.QStrategySVR.buy request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.bothResponse both(QStrategyGUILib.QStrategySVR.both request);
-        
+
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.OperationContractAttribute(Action = "", ReplyAction = "*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(strategyEngineUpdate))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name = "return")]
         QStrategyGUILib.QStrategySVR.lockResponse @lock(QStrategyGUILib.QStrategySVR.@lock request);
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://web.yxstrategy.heisen/")]
-    public partial class strategyResultsUpdate : strategyEngineUpdate {
-        
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://web.yxstrategy.heisen/")]
+    public partial class strategyResultsUpdate : strategyEngineUpdate
+    {
+
         private symbolUpdate[] updatesField;
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("updates", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public symbolUpdate[] updates {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute("updates", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
+        public symbolUpdate[] updates
+        {
+            get
+            {
                 return this.updatesField;
             }
-            set {
+            set
+            {
                 this.updatesField = value;
                 this.RaisePropertyChanged("updates");
             }
         }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://web.yxstrategy.heisen/")]
-    public partial class symbolUpdate : object, System.ComponentModel.INotifyPropertyChanged {
-        
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://web.yxstrategy.heisen/")]
+    public partial class symbolUpdate : object, System.ComponentModel.INotifyPropertyChanged
+    {
+
         private double feesField;
-        
+
         private double highmarkField;
-        
+
         private System.DateTime lastTradeField;
-        
+
         private bool lastTradeFieldSpecified;
-        
+
         private double maxLossField;
-        
+
         private tradingMode modeField;
-        
+
         private bool modeFieldSpecified;
-        
+
         private int openOrderCountField;
-        
+
         private double pnlField;
-        
+
         private int positionField;
-        
+
         private double positionValueField;
-        
+
         private double rebatesField;
-        
+
         private strategyState stateField;
-        
+
         private bool stateFieldSpecified;
-        
+
         private string symbolField;
-        
+
         private double tradingPnlField;
-        
+
         private double unrealizedPnlField;
-        
+
         private int unroutedQtyField;
-        
+
         private string[] userMessagesField;
-        
+
         private int volumeField;
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public double fees {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 0)]
+        public double fees
+        {
+            get
+            {
                 return this.feesField;
             }
-            set {
+            set
+            {
                 this.feesField = value;
                 this.RaisePropertyChanged("fees");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public double highmark {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 1)]
+        public double highmark
+        {
+            get
+            {
                 return this.highmarkField;
             }
-            set {
+            set
+            {
                 this.highmarkField = value;
                 this.RaisePropertyChanged("highmark");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public System.DateTime lastTrade {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 2)]
+        public System.DateTime lastTrade
+        {
+            get
+            {
                 return this.lastTradeField;
             }
-            set {
+            set
+            {
                 this.lastTradeField = value;
                 this.RaisePropertyChanged("lastTrade");
             }
         }
-        
+
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool lastTradeSpecified {
-            get {
+        public bool lastTradeSpecified
+        {
+            get
+            {
                 return this.lastTradeFieldSpecified;
             }
-            set {
+            set
+            {
                 this.lastTradeFieldSpecified = value;
                 this.RaisePropertyChanged("lastTradeSpecified");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public double maxLoss {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 3)]
+        public double maxLoss
+        {
+            get
+            {
                 return this.maxLossField;
             }
-            set {
+            set
+            {
                 this.maxLossField = value;
                 this.RaisePropertyChanged("maxLoss");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public tradingMode mode {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 4)]
+        public tradingMode mode
+        {
+            get
+            {
                 return this.modeField;
             }
-            set {
+            set
+            {
                 this.modeField = value;
                 this.RaisePropertyChanged("mode");
             }
         }
-        
+
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool modeSpecified {
-            get {
+        public bool modeSpecified
+        {
+            get
+            {
                 return this.modeFieldSpecified;
             }
-            set {
+            set
+            {
                 this.modeFieldSpecified = value;
                 this.RaisePropertyChanged("modeSpecified");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public int openOrderCount {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 5)]
+        public int openOrderCount
+        {
+            get
+            {
                 return this.openOrderCountField;
             }
-            set {
+            set
+            {
                 this.openOrderCountField = value;
                 this.RaisePropertyChanged("openOrderCount");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public double pnl {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 6)]
+        public double pnl
+        {
+            get
+            {
                 return this.pnlField;
             }
-            set {
+            set
+            {
                 this.pnlField = value;
                 this.RaisePropertyChanged("pnl");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public int position {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 7)]
+        public int position
+        {
+            get
+            {
                 return this.positionField;
             }
-            set {
+            set
+            {
                 this.positionField = value;
                 this.RaisePropertyChanged("position");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public double positionValue {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 8)]
+        public double positionValue
+        {
+            get
+            {
                 return this.positionValueField;
             }
-            set {
+            set
+            {
                 this.positionValueField = value;
                 this.RaisePropertyChanged("positionValue");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public double rebates {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 9)]
+        public double rebates
+        {
+            get
+            {
                 return this.rebatesField;
             }
-            set {
+            set
+            {
                 this.rebatesField = value;
                 this.RaisePropertyChanged("rebates");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-        public strategyState state {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 10)]
+        public strategyState state
+        {
+            get
+            {
                 return this.stateField;
             }
-            set {
+            set
+            {
                 this.stateField = value;
                 this.RaisePropertyChanged("state");
             }
         }
-        
+
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool stateSpecified {
-            get {
+        public bool stateSpecified
+        {
+            get
+            {
                 return this.stateFieldSpecified;
             }
-            set {
+            set
+            {
                 this.stateFieldSpecified = value;
                 this.RaisePropertyChanged("stateSpecified");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-        public string symbol {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 11)]
+        public string symbol
+        {
+            get
+            {
                 return this.symbolField;
             }
-            set {
+            set
+            {
                 this.symbolField = value;
                 this.RaisePropertyChanged("symbol");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
-        public double tradingPnl {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 12)]
+        public double tradingPnl
+        {
+            get
+            {
                 return this.tradingPnlField;
             }
-            set {
+            set
+            {
                 this.tradingPnlField = value;
                 this.RaisePropertyChanged("tradingPnl");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
-        public double unrealizedPnl {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 13)]
+        public double unrealizedPnl
+        {
+            get
+            {
                 return this.unrealizedPnlField;
             }
-            set {
+            set
+            {
                 this.unrealizedPnlField = value;
                 this.RaisePropertyChanged("unrealizedPnl");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
-        public int unroutedQty {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 14)]
+        public int unroutedQty
+        {
+            get
+            {
                 return this.unroutedQtyField;
             }
-            set {
+            set
+            {
                 this.unroutedQtyField = value;
                 this.RaisePropertyChanged("unroutedQty");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("userMessages", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=15)]
-        public string[] userMessages {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute("userMessages", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 15)]
+        public string[] userMessages
+        {
+            get
+            {
                 return this.userMessagesField;
             }
-            set {
+            set
+            {
                 this.userMessagesField = value;
                 this.RaisePropertyChanged("userMessages");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
-        public int volume {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 16)]
+        public int volume
+        {
+            get
+            {
                 return this.volumeField;
             }
-            set {
+            set
+            {
                 this.volumeField = value;
                 this.RaisePropertyChanged("volume");
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
+            if ((propertyChanged != null))
+            {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://web.yxstrategy.heisen/")]
-    public enum tradingMode {
-        
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://web.yxstrategy.heisen/")]
+    public enum tradingMode
+    {
+
         /// <remarks/>
         Buy,
-        
+
         /// <remarks/>
         Sell,
-        
+
         /// <remarks/>
         Both,
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://web.yxstrategy.heisen/")]
-    public enum strategyState {
-        
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://web.yxstrategy.heisen/")]
+    public enum strategyState
+    {
+
         /// <remarks/>
         Stopped,
-        
+
         /// <remarks/>
         Trading,
-        
+
         /// <remarks/>
         MaxLoss,
-        
+
         /// <remarks/>
         Hung,
-        
+
         /// <remarks/>
         Locked,
     }
-    
+
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(strategyResultsUpdate))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://web.yxstrategy.heisen/")]
-    public partial class strategyEngineUpdate : object, System.ComponentModel.INotifyPropertyChanged {
-        
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://web.yxstrategy.heisen/")]
+    public partial class strategyEngineUpdate : object, System.ComponentModel.INotifyPropertyChanged
+    {
+
         private apiState apiStateField;
-        
+
         private bool apiStateFieldSpecified;
-        
+
         private bool isTradingField;
-        
+
         private int seedQtyThresholdField;
-        
+
         private string strategyNameField;
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public apiState apiState {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 0)]
+        public apiState apiState
+        {
+            get
+            {
                 return this.apiStateField;
             }
-            set {
+            set
+            {
                 this.apiStateField = value;
                 this.RaisePropertyChanged("apiState");
             }
         }
-        
+
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool apiStateSpecified {
-            get {
+        public bool apiStateSpecified
+        {
+            get
+            {
                 return this.apiStateFieldSpecified;
             }
-            set {
+            set
+            {
                 this.apiStateFieldSpecified = value;
                 this.RaisePropertyChanged("apiStateSpecified");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public bool isTrading {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 1)]
+        public bool isTrading
+        {
+            get
+            {
                 return this.isTradingField;
             }
-            set {
+            set
+            {
                 this.isTradingField = value;
                 this.RaisePropertyChanged("isTrading");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int seedQtyThreshold {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 2)]
+        public int seedQtyThreshold
+        {
+            get
+            {
                 return this.seedQtyThresholdField;
             }
-            set {
+            set
+            {
                 this.seedQtyThresholdField = value;
                 this.RaisePropertyChanged("seedQtyThreshold");
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string strategyName {
-            get {
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 3)]
+        public string strategyName
+        {
+            get
+            {
                 return this.strategyNameField;
             }
-            set {
+            set
+            {
                 this.strategyNameField = value;
                 this.RaisePropertyChanged("strategyName");
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
+            if ((propertyChanged != null))
+            {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://web.yxstrategy.heisen/")]
-    public enum apiState {
-        
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://web.yxstrategy.heisen/")]
+    public enum apiState
+    {
+
         /// <remarks/>
         Initial,
-        
+
         /// <remarks/>
         PendingLogon,
-        
+
         /// <remarks/>
         LoggedOn,
-        
+
         /// <remarks/>
         Ready,
-        
+
         /// <remarks/>
         LogonFailure,
-        
+
         /// <remarks/>
         Disconnected,
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="sell", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class sell {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "sell", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class sell
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public sell() {
+
+        public sell()
+        {
         }
-        
-        public sell(string symbolSpec) {
+
+        public sell(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="sellResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class sellResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "sellResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class sellResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public sellResponse() {
+
+        public sellResponse()
+        {
         }
-        
-        public sellResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public sellResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="stop", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class stop {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "stop", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class stop
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public stop() {
+
+        public stop()
+        {
         }
-        
-        public stop(string symbolSpec) {
+
+        public stop(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="stopResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class stopResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "stopResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class stopResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public stopResponse() {
+
+        public stopResponse()
+        {
         }
-        
-        public stopResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public stopResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="cancelAll", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class cancelAll {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "cancelAll", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class cancelAll
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public cancelAll() {
+
+        public cancelAll()
+        {
         }
-        
-        public cancelAll(string symbolSpec) {
+
+        public cancelAll(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="cancelAllResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class cancelAllResponse {
-        
-        public cancelAllResponse() {
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "cancelAllResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class cancelAllResponse
+    {
+
+        public cancelAllResponse()
+        {
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="echo", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class echo {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "echo", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class echo
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
-        
-        public echo() {
+
+        public echo()
+        {
         }
-        
-        public echo(string arg0) {
+
+        public echo(string arg0)
+        {
             this.arg0 = arg0;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="echoResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class echoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "echoResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class echoResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string @return;
-        
-        public echoResponse() {
+
+        public echoResponse()
+        {
         }
-        
-        public echoResponse(string @return) {
+
+        public echoResponse(string @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getUpdates", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class getUpdates {
-        
-        public getUpdates() {
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "getUpdates", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class getUpdates
+    {
+
+        public getUpdates()
+        {
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getUpdatesResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class getUpdatesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "getUpdatesResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class getUpdatesResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public getUpdatesResponse() {
+
+        public getUpdatesResponse()
+        {
         }
-        
-        public getUpdatesResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public getUpdatesResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="unlock", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class unlock {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "unlock", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class unlock
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public unlock() {
+
+        public unlock()
+        {
         }
-        
-        public unlock(string symbolSpec) {
+
+        public unlock(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="unlockResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class unlockResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "unlockResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class unlockResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public unlockResponse() {
+
+        public unlockResponse()
+        {
         }
-        
-        public unlockResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public unlockResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="start", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class start {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "start", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class start
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public start() {
+
+        public start()
+        {
         }
-        
-        public start(string symbolSpec) {
+
+        public start(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="startResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class startResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "startResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class startResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public startResponse() {
+
+        public startResponse()
+        {
         }
-        
-        public startResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public startResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buy", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class buy {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "buy", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class buy
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public buy() {
+
+        public buy()
+        {
         }
-        
-        public buy(string symbolSpec) {
+
+        public buy(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buyResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class buyResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "buyResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class buyResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public buyResponse() {
+
+        public buyResponse()
+        {
         }
-        
-        public buyResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public buyResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="both", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class both {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "both", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class both
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public both() {
+
+        public both()
+        {
         }
-        
-        public both(string symbolSpec) {
+
+        public both(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="bothResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class bothResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "bothResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class bothResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public bothResponse() {
+
+        public bothResponse()
+        {
         }
-        
-        public bothResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public bothResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="lock", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class @lock {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "lock", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class @lock
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string symbolSpec;
-        
-        public @lock() {
+
+        public @lock()
+        {
         }
-        
-        public @lock(string symbolSpec) {
+
+        public @lock(string symbolSpec)
+        {
             this.symbolSpec = symbolSpec;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="lockResponse", WrapperNamespace="http://web.yxstrategy.heisen/", IsWrapped=true)]
-    public partial class lockResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://web.yxstrategy.heisen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "lockResponse", WrapperNamespace = "http://web.yxstrategy.heisen/", IsWrapped = true)]
+    public partial class lockResponse
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://web.yxstrategy.heisen/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return;
-        
-        public lockResponse() {
+
+        public lockResponse()
+        {
         }
-        
-        public lockResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return) {
+
+        public lockResponse(QStrategyGUILib.QStrategySVR.strategyResultsUpdate @return)
+        {
             this.@return = @return;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface StrategyWebServiceChannel : QStrategyGUILib.QStrategySVR.StrategyWebService, System.ServiceModel.IClientChannel {
+    public interface StrategyWebServiceChannel : QStrategyGUILib.QStrategySVR.StrategyWebService, System.ServiceModel.IClientChannel
+    {
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class StrategyWebServiceClient : System.ServiceModel.ClientBase<QStrategyGUILib.QStrategySVR.StrategyWebService>, QStrategyGUILib.QStrategySVR.StrategyWebService {
-        
-        public StrategyWebServiceClient() {
+    public partial class StrategyWebServiceClient : System.ServiceModel.ClientBase<QStrategyGUILib.QStrategySVR.StrategyWebService>, QStrategyGUILib.QStrategySVR.StrategyWebService
+    {
+
+        public StrategyWebServiceClient()
+        {
         }
-        
-        public StrategyWebServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+
+        public StrategyWebServiceClient(string endpointConfigurationName) :
+            base(endpointConfigurationName)
+        {
         }
-        
-        public StrategyWebServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+
+        public StrategyWebServiceClient(string endpointConfigurationName, string remoteAddress) :
+            base(endpointConfigurationName, remoteAddress)
+        {
         }
-        
-        public StrategyWebServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+
+        public StrategyWebServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
+            base(endpointConfigurationName, remoteAddress)
+        {
         }
-        
-        public StrategyWebServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+
+        public StrategyWebServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
+            base(binding, remoteAddress)
+        {
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.sellResponse QStrategyGUILib.QStrategySVR.StrategyWebService.sell(QStrategyGUILib.QStrategySVR.sell request) {
+        QStrategyGUILib.QStrategySVR.sellResponse QStrategyGUILib.QStrategySVR.StrategyWebService.sell(QStrategyGUILib.QStrategySVR.sell request)
+        {
             return base.Channel.sell(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate sell(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate sell(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.sell inValue = new QStrategyGUILib.QStrategySVR.sell();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.sellResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).sell(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.stopResponse QStrategyGUILib.QStrategySVR.StrategyWebService.stop(QStrategyGUILib.QStrategySVR.stop request) {
+        QStrategyGUILib.QStrategySVR.stopResponse QStrategyGUILib.QStrategySVR.StrategyWebService.stop(QStrategyGUILib.QStrategySVR.stop request)
+        {
             return base.Channel.stop(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate stop(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate stop(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.stop inValue = new QStrategyGUILib.QStrategySVR.stop();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.stopResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).stop(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.cancelAllResponse QStrategyGUILib.QStrategySVR.StrategyWebService.cancelAll(QStrategyGUILib.QStrategySVR.cancelAll request) {
+        QStrategyGUILib.QStrategySVR.cancelAllResponse QStrategyGUILib.QStrategySVR.StrategyWebService.cancelAll(QStrategyGUILib.QStrategySVR.cancelAll request)
+        {
             return base.Channel.cancelAll(request);
         }
-        
-        public void cancelAll(string symbolSpec) {
+
+        public void cancelAll(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.cancelAll inValue = new QStrategyGUILib.QStrategySVR.cancelAll();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.cancelAllResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).cancelAll(inValue);
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.echoResponse QStrategyGUILib.QStrategySVR.StrategyWebService.echo(QStrategyGUILib.QStrategySVR.echo request) {
+        QStrategyGUILib.QStrategySVR.echoResponse QStrategyGUILib.QStrategySVR.StrategyWebService.echo(QStrategyGUILib.QStrategySVR.echo request)
+        {
             return base.Channel.echo(request);
         }
-        
-        public string echo(string arg0) {
+
+        public string echo(string arg0)
+        {
             QStrategyGUILib.QStrategySVR.echo inValue = new QStrategyGUILib.QStrategySVR.echo();
             inValue.arg0 = arg0;
             QStrategyGUILib.QStrategySVR.echoResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).echo(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.getUpdatesResponse QStrategyGUILib.QStrategySVR.StrategyWebService.getUpdates(QStrategyGUILib.QStrategySVR.getUpdates request) {
+        QStrategyGUILib.QStrategySVR.getUpdatesResponse QStrategyGUILib.QStrategySVR.StrategyWebService.getUpdates(QStrategyGUILib.QStrategySVR.getUpdates request)
+        {
             return base.Channel.getUpdates(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate getUpdates() {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate getUpdates()
+        {
             QStrategyGUILib.QStrategySVR.getUpdates inValue = new QStrategyGUILib.QStrategySVR.getUpdates();
             QStrategyGUILib.QStrategySVR.getUpdatesResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).getUpdates(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.unlockResponse QStrategyGUILib.QStrategySVR.StrategyWebService.unlock(QStrategyGUILib.QStrategySVR.unlock request) {
+        QStrategyGUILib.QStrategySVR.unlockResponse QStrategyGUILib.QStrategySVR.StrategyWebService.unlock(QStrategyGUILib.QStrategySVR.unlock request)
+        {
             return base.Channel.unlock(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate unlock(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate unlock(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.unlock inValue = new QStrategyGUILib.QStrategySVR.unlock();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.unlockResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).unlock(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.startResponse QStrategyGUILib.QStrategySVR.StrategyWebService.start(QStrategyGUILib.QStrategySVR.start request) {
+        QStrategyGUILib.QStrategySVR.startResponse QStrategyGUILib.QStrategySVR.StrategyWebService.start(QStrategyGUILib.QStrategySVR.start request)
+        {
             return base.Channel.start(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate start(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate start(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.start inValue = new QStrategyGUILib.QStrategySVR.start();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.startResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).start(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.buyResponse QStrategyGUILib.QStrategySVR.StrategyWebService.buy(QStrategyGUILib.QStrategySVR.buy request) {
+        QStrategyGUILib.QStrategySVR.buyResponse QStrategyGUILib.QStrategySVR.StrategyWebService.buy(QStrategyGUILib.QStrategySVR.buy request)
+        {
             return base.Channel.buy(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate buy(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate buy(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.buy inValue = new QStrategyGUILib.QStrategySVR.buy();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.buyResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).buy(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.bothResponse QStrategyGUILib.QStrategySVR.StrategyWebService.both(QStrategyGUILib.QStrategySVR.both request) {
+        QStrategyGUILib.QStrategySVR.bothResponse QStrategyGUILib.QStrategySVR.StrategyWebService.both(QStrategyGUILib.QStrategySVR.both request)
+        {
             return base.Channel.both(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate both(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate both(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.both inValue = new QStrategyGUILib.QStrategySVR.both();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.bothResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).both(inValue);
             return retVal.@return;
         }
-        
+
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QStrategyGUILib.QStrategySVR.lockResponse QStrategyGUILib.QStrategySVR.StrategyWebService.@lock(QStrategyGUILib.QStrategySVR.@lock request) {
+        QStrategyGUILib.QStrategySVR.lockResponse QStrategyGUILib.QStrategySVR.StrategyWebService.@lock(QStrategyGUILib.QStrategySVR.@lock request)
+        {
             return base.Channel.@lock(request);
         }
-        
-        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @lock(string symbolSpec) {
+
+        public QStrategyGUILib.QStrategySVR.strategyResultsUpdate @lock(string symbolSpec)
+        {
             QStrategyGUILib.QStrategySVR.@lock inValue = new QStrategyGUILib.QStrategySVR.@lock();
             inValue.symbolSpec = symbolSpec;
             QStrategyGUILib.QStrategySVR.lockResponse retVal = ((QStrategyGUILib.QStrategySVR.StrategyWebService)(this)).@lock(inValue);

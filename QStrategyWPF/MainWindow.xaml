@@ -23,7 +23,7 @@
             </StackPanel>
             <TextBlock HorizontalAlignment="Right" 
                        Margin="5" Foreground="Blue"
-                       Text="Version: 1.0.0.20"/>
+                       Text="Version: 1.0.0.21"/>
         </Grid>
         <my:QStrategyUserControl Grid.Row="1"
             IsEnabled="{Binding Source={StaticResource AppManager}, Path=StgEngine.IsConnected}"/>

@@ -43,8 +43,8 @@ namespace QStrategyGUILib
             }
         }
 
-
         private symbolUpdate strategyOrderSRV;
+        private bool isAlreadyHadSameProcess;
 
         private Strategy strategy;
         public Strategy Strategy
@@ -267,7 +267,16 @@ namespace QStrategyGUILib
                 this.RaisePropertyChanged(p => p.TradingMode);
             }
         }
-        
+        public bool IsAlreadyHadSameProcess
+        {
+            get { return isAlreadyHadSameProcess; }
+            set
+            {
+                isAlreadyHadSameProcess = value;
+                this.RaisePropertyChanged(p => p.IsAlreadyHadSameProcess);
+            }
+        }
+
         internal symbolUpdate StrategyOrderSRV
         {
             get { return strategyOrderSRV; }

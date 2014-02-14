@@ -247,6 +247,50 @@ namespace QStrategyWPF.View.QStrategyUserControls
                 {
                     binding.StringFormat = "###,##0";
                 }
+                else if (column.Name.Equals("IsAlreadyHadSameProcess"))
+                {
+                    if (isSummaryRowGrid)
+                    {
+                        autofilterDataGrid.Columns.Add(new DataGridTextColumn
+                        {
+                            Width = 30,
+                            IsReadOnly = true,
+                        });
+                    }
+                    else
+                    {
+                        FrameworkElementFactory chkBobBlock = new FrameworkElementFactory(typeof(CheckBox));
+                        chkBobBlock.SetBinding(CheckBox.IsCheckedProperty, binding);
+
+                        Binding visibilityBinding = new Binding(column.Name);
+                        visibilityBinding.Converter = new QStrategyWPF.Converters.BooleanToVisibilityConverter();
+                        chkBobBlock.SetBinding(CheckBox.VisibilityProperty, visibilityBinding);
+                        chkBobBlock.SetValue(UIElement.IsHitTestVisibleProperty,false);
+                        chkBobBlock.SetValue(UIElement.IsHitTestVisibleProperty, false);
+
+                        dgCol.Width = 30;
+                        dgCol.Header = " ";
+                        dgCol.IsReadOnly = true;
+
+                        FrameworkElementFactory factoryChk = new FrameworkElementFactory(typeof(Grid));
+                        factoryChk.AppendChild(chkBobBlock);
+                        DataTemplate cellTemplateChk = new DataTemplate();
+                        cellTemplateChk.VisualTree = factoryChk;
+                        dgCol.CellTemplate = cellTemplateChk;
+                        autofilterDataGrid.Columns.Add(dgCol);
+
+                        //autofilterDataGrid.Columns.Add(new DataGridCheckBoxColumn
+                        //{
+                        //    Width = 30,
+                        //    IsReadOnly = true,
+                        //    Header = " ",
+                        //    Binding = new Binding(column.Name),
+                            
+                        //    Visibility = new Binding(column.Name) { }
+                        //});
+                    }
+                    continue;
+                }
 
 
                 textBlock.SetBinding(TextBlock.TextProperty, binding);
@@ -435,6 +479,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void GetSelectedStrategyAndSymbol(Dictionary<string, List<string>> selectedStrategyAndSymbol, ProcessType _processType)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
             if (fltdg.SelectedItems != null)
             {
                 for (int i = 0; i < fltdg.SelectedItems.Count; i++)
@@ -450,6 +495,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
                             {
                                 if (_processType.ToString().ToLower().Equals(orderInfo.TradingMode.ToLower()))
                                 {
+                                    orderInfo.IsAlreadyHadSameProcess = true;
                                     //Avoid re-setting the symbol with same trading-mode as before
                                     continue;
                                 }
@@ -588,6 +634,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         void buttonSelectAll_Click(object sender, RoutedEventArgs e)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
             this.fltdg.Focus();
         }
 
@@ -701,7 +748,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void lockUnlockRowButton_Click(object sender, RoutedEventArgs e)
         {
-
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
         }
 
         private void fltdg_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)

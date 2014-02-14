@@ -242,6 +242,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void startStopRowButton_Click(object sender, RoutedEventArgs e)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
             AlertType alertType = AlertType.START;
             if (dgAggregate.SelectedItem != null)
             {
@@ -314,6 +315,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void cancelAllRowButton_Click(object sender, RoutedEventArgs e)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
             AlertType alertType = AlertType.CANCEL;
             if (dgAggregate.SelectedItem != null)
             {
@@ -362,6 +364,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void lockUnLockRowButton_Click(object sender, RoutedEventArgs e)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
             AlertType alertType = AlertType.LOCK;
             if (dgAggregate.SelectedItem != null)
             {
@@ -405,6 +408,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         private void unwindRowButton_Click(object sender, RoutedEventArgs e)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
         }
 
         private void GetSelectedStrategyAndSymbol(string strategyId, Dictionary<string, List<string>> selectedStrategyAndSymbol, AlertType _alertType)
@@ -480,6 +484,7 @@ namespace QStrategyWPF.View.QStrategyUserControls
 
         void buttonSelectAll_Click(object sender, RoutedEventArgs e)
         {
+            App.AppManager.DataMgr.ClearProcessSelectionIndication();
             this.dgAggregate.Focus();
         }
 

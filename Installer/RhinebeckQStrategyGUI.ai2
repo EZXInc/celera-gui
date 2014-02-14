@@ -1,7 +1,7 @@
 <aiw2project project-file-version="6">
   <cs-general>
     <application-name value="RhinebeckQStrategyGUI" />
-    <application-version value="1.0.0.21" />
+    <application-version value="1.0.0.22" />
     <company-name value="Company name" />
     <install-path value="c:\&lt;AppName&gt;" reg-root-key="2" reg-path="Software\&lt;CompanyName&gt;\&lt;AppName&gt;" read-from-registry="0" reg-value="Directory" />
     <shortcut-path value="&lt;AppName&gt;" all-users-start-menu="0" />

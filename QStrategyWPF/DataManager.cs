@@ -357,5 +357,17 @@ namespace QStrategyWPF
                 InitializeData();
             }));
         }
+
+        public void ClearProcessSelectionIndication()
+        {
+            for (int i = 0; i < this.StrategyOrderCollectionView.Count; i++)
+            {
+                StrategyOrderInfo orderInfo = this.StrategyOrderCollectionView.GetItemAt(i) as StrategyOrderInfo;
+                if (orderInfo != null)
+                {
+                    orderInfo.IsAlreadyHadSameProcess = false;
+                }
+            }
+        }
     }
 }
